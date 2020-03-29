@@ -22,7 +22,7 @@ export class VendaManterComponent implements OnInit {
 
   listaProduto: Produto[] = [];
   listaCliente: Cliente[] = [];
-
+  
   constructor(    
     private router: Router,
     private vendaService: VendaService,
@@ -32,12 +32,18 @@ export class VendaManterComponent implements OnInit {
 
   ngOnInit(): void { 
     
+    this.consultarCliente();
+    this.consultarProduto();
+    
+  }
+  consultarCliente(){
     this.clienteService.consultar('').subscribe(
       data => {
         this.listaCliente = <Cliente[]>data;
       }
     );
-    
+  }
+  consultarProduto(){
     this.produtoService.consultar('').subscribe(
       data => {
         this.listaProduto = <Produto[]>data;
@@ -59,9 +65,10 @@ export class VendaManterComponent implements OnInit {
   }
   
   adicionar(){
-
+    alert("foi add");
     this.venda.listaVendaProduto.push(this.vendaProduto);
     this.vendaProduto = new VendaProduto();
+    
 
   }
 

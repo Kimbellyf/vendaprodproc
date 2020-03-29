@@ -10,6 +10,9 @@ export class ClienteService {
   constructor(
     private http: HttpClient
   ) { }
+  pesquisar(codigoCliente: string){        
+    return this.http.get("https://cors-anywhere.herokuapp.com/https://stormy-badlands-29216.herokuapp.com/api/cliente/consultar/"+codigoCliente);
+  }
 
   consultar(codigoCliente: string){        
     return this.http.get("https://cors-anywhere.herokuapp.com/https://stormy-badlands-29216.herokuapp.com/api/cliente/consultar/"+codigoCliente);

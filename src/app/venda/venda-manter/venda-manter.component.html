@@ -1,9 +1,22 @@
 <app-layout>
+    <button type="button" ngbAutofocus class="btn btn-danger"
+    (click)="modal.close('Ok click')">Ok</button>
+    <button type="button" ngbAutofocus class="btn btn-danger"
+    >Ok</button>
+ 
     <div class="card">
         <div class="card-body">
           <h5 class="card-title">Venda - {{operacao}}</h5>  
           <div class="row">
             <div class="form-group col-lg-12">
+                <div >
+                    <label class="control-label">Código:</label>
+                    <input type="number" class="form-control" [(ngModel)]="venda.codigo" />
+                </div>
+                <div>
+                    <label class="control-label">Data:</label>
+                    <input type="date" class="form-control" [(ngModel)]="venda.data" />
+                </div>
                 <label for="cliente"class="control-label">Cliente:</label>
                 <select [(ngModel)]="venda.cliente" class="form-control">
                     <option [ngValue]="null">Selecione</option>  
@@ -11,7 +24,7 @@
                 </select>              
             </div>
           </div>
-
+          <br>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Adicionar Produto</h5>  
@@ -25,10 +38,9 @@
                 </div>
 
                 <div class="form-group col-lg-6">
-                    <label for="dataVendaProduto"class="control-label">Data venda:</label>
-                    <input type="date" class="form-control" [(ngModel)]="vendaProduto.datavendaProduto" />
+                    <label for="dataVendaProduto"class="control-label">Quantidade:</label>
+                    <input type="number" class="form-control" [(ngModel)]="vendaProduto.quantidade" />
                 </div>
-                
               </div>
               
               <div class="row" style="margin-bottom: 20px;">
@@ -43,14 +55,18 @@
                     <thead>
                       <tr>
                         <th>Produto</th>
-                        <th>Data venda</th>                                   
+                        <th>Data venda</th>
+                        <th>Data venda</th>   
+                        <th>Quantidade</th>                                      
                         <th></th>                                   
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let vendaProduto of venda.listavendaProduto">                        
+                      <tr *ngFor="let vendaProduto of venda.listaVendaProduto">                        
                         <th>{{vendaProduto.produto.nome}}</th>
                         <td>{{vendaProduto.dataVendaProduto | date: 'dd/MM/yyyy'}}</td>
+                        <td>{{vendaProduto.data | date: 'dd/MM/yyyy'}}</td>
+                        <th>{{vendaProduto.quantidade}}</th>
                         <th><a style="cursor: pointer;" (click)="removerproduto(vendaProduto)">X</a></th>
                       </tr>                  
                     </tbody>

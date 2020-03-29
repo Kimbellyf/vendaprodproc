@@ -26,6 +26,7 @@ export class ProdutosComponent implements OnInit {
     this.pesquisar();
   }
 
+
   pesquisar(){
 
     this.produtoServico.consultar(this.produto.nome).subscribe(

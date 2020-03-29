@@ -20,12 +20,7 @@ export class ClientesComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.clienteService.consultar(this.cliente.nome).subscribe(
-      data => {
-        this.listaCliente = <Cliente[]>data;
-        
-      }
-    );
+   this.pesquisar();
   }
 
 

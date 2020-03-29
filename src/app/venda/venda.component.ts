@@ -85,5 +85,13 @@ export class VendaComponent implements OnInit {
   selecionar(valor){
     this.selecionado = valor;    
   }
+  verDetalhes(venda){
+    this.selecionado = venda;
+    //alert(this.selecionado.listaVendaProduto.
+    //}));
+  }
+  imprimirItensListaVendaProdSelec(item){
+    console.log(item);
+  }
 
 }

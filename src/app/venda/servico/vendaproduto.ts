@@ -7,6 +7,7 @@ export class VendaProduto {
     cliente: Cliente;
     produto: Produto;
     listaVentaItem: [];
+    quantidade: string | number;
     dataVendaProduto: Date;
 }
 

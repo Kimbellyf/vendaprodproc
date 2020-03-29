@@ -1,6 +1,6 @@
 export class Cliente  {
     codigo: string;
-    nome: string;
+    nome: string = '';
     endereco: string;
     cidade: string;
     cep: string;

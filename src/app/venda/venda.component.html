@@ -27,20 +27,39 @@
                 <thead>
                   <tr>
                     <th></th>
-                    <th>Codigo</th>
-                    <th>Nome</th>                                   
+                    <th>Código</th>
+                    <th>Data</th>    
+                    <th>Nome do cliente</th>
+                    <th>Lista de produtos comprados</th>  
+                    
+                    <th>H2</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr *ngFor="let venda of listaVenda">
                     <th><input type="radio" name="selecionado" (change)="selecionar(venda)"/></th>
                     <th>{{venda.codigo}}</th>
+                    <td>{{venda.data | date: 'dd/MM/yyyy' }}</td>
                     <td>{{venda.cliente.nome}}</td>
-                  </tr>                  
+                    <td><button name="itemselecbutton" (click)="verDetalhes(venda)">Ver detalhes</button> </td>
+                    <div *ngFor="let pr of venda.listaVentaItem">
+                        Código:{{pr.codigo}}
+                        Nome:{{pr.produto.nome}}
+                       Quantidade: {{pr.quantidade}}
+                    </div>
+                    
+                      
+                
+                        
+                    
+                  </tr>
+
+                          
                 </tbody>
               </table>
             </div>
           </div>
+
 
           <div class="row" style="margin-bottom: 20px;">
             <div class="col-lg-12">
@@ -51,5 +70,10 @@
 
         </div>
     </div>
+
+
+    <button type="button" mdbBtn color="primary" class="relative waves-light" (click)="basicModal.show()" mdbWavesEffect>Launch demo modal</button>
+
+
     
 </app-layout>
